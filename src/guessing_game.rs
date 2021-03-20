@@ -14,7 +14,13 @@ pub fn guessing_game() {
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
-        let guess: u32 = guess.trim().parse().expect("You need type a num");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("please type a num!");
+                continue;
+            }
+        };
 
         println!("You guessed: {}", guess);
 
@@ -28,5 +34,5 @@ pub fn guessing_game() {
         }
         time += 1;
     }
-    println!("you guess {} times",time);
+    println!("you guess {} times", time);
 }
