@@ -1,7 +1,7 @@
+mod guessing_game;
 mod learn_type;
+// use learn_type::learn_type;
 fn main() {
-    learn_type::learn_type();
-    println!("123");
-    let s = 3;
-    println!("{}",s);
+    // learn_type();
+    guessing_game::guessing_game();
 }
