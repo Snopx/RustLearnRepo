@@ -3,7 +3,8 @@
 // mod variables_learn; //1
 // mod learn_type; //2
 // mod control_flow;//3
-mod ownership_learn;//4
+// mod ownership_learn;//4
+mod slice_learn;
 fn main() {
     // guessing_game::guessing_game();
     // variables_learn::variables_learn();
@@ -13,11 +14,14 @@ fn main() {
     // println!("{}",int);
 
     // control_flow::control_flow();
-    ownership_learn::ownership();
+    // ownership_learn::ownership();
+    slice_learn::slice_learn();
+    slice_learn::slice_come();
+    slice_learn::slice_learn_adv();
 }
 
 //函数的声明 返回类型 ->type
-fn int_method()->i32{
-     3 // 两种返回形式，直接写返回值 或者 return value;
-     //return 3;
+fn int_method() -> i32 {
+    3 // 两种返回形式，直接写返回值 或者 return value;
+      //return 3;
 }
