@@ -3,8 +3,9 @@
 // mod variables_learn; //1
 // mod learn_type; //2
 // mod control_flow;//3
-// mod ownership_learn;//4
-mod slice_learn;
+// mod ownership_learn;//4.1
+// mod slice_learn;//4.2
+mod struct_learn;
 fn main() {
     // guessing_game::guessing_game();
     // variables_learn::variables_learn();
@@ -15,9 +16,11 @@ fn main() {
 
     // control_flow::control_flow();
     // ownership_learn::ownership();
-    slice_learn::slice_learn();
-    slice_learn::slice_come();
-    slice_learn::slice_learn_adv();
+    // slice_learn::slice_learn();
+    // slice_learn::slice_come();
+    // slice_learn::slice_learn_adv();
+
+    struct_learn::struct_learn();
 }
 
 //函数的声明 返回类型 ->type
