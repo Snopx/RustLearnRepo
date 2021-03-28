@@ -10,6 +10,7 @@
 //mod enum_learn;//6
 
 // mod match_learn;//6.1
+mod package_crate_module;
 fn main() {
     // guessing_game::guessing_game();
     // variables_learn::variables_learn();
@@ -32,6 +33,8 @@ fn main() {
 
     // match_learn::match_learn();
 
+    //
+    crate::package_crate_module::front_of_house::hosting::add_to_waitlist(); // 绝对路径
 }
 
 //函数的声明 返回类型 ->type
