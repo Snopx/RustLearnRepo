@@ -5,7 +5,11 @@
 // mod control_flow;//3
 // mod ownership_learn;//4.1
 // mod slice_learn;//4.2
-mod struct_learn;
+// mod struct_learn;//5.1
+// mod struct_demo;//5.2
+//mod enum_learn;//6
+
+// mod match_learn;//6.1
 fn main() {
     // guessing_game::guessing_game();
     // variables_learn::variables_learn();
@@ -20,7 +24,14 @@ fn main() {
     // slice_learn::slice_come();
     // slice_learn::slice_learn_adv();
 
-    struct_learn::struct_learn();
+    // struct_learn::struct_learn();
+
+    // struct_demo::struct_demo();
+
+    // enum_learn::enum_learn();
+
+    // match_learn::match_learn();
+
 }
 
 //函数的声明 返回类型 ->type
