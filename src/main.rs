@@ -11,6 +11,7 @@
 
 // mod match_learn;//6.1
 mod package_crate_module;
+mod use_learn;
 fn main() {
     // guessing_game::guessing_game();
     // variables_learn::variables_learn();
@@ -35,6 +36,9 @@ fn main() {
 
     //
     crate::package_crate_module::front_of_house::hosting::add_to_waitlist(); // 绝对路径
+    use crate::use_learn::front_of_house_a::hosting;
+    hosting::add_to_waitlist();
+    
 }
 
 //函数的声明 返回类型 ->type
