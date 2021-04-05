@@ -13,6 +13,8 @@
 mod package_crate_module;
 mod use_learn;
 mod vec_learn;
+mod string_learn;
+mod hashmap_learn;
 fn main() {
     // guessing_game::guessing_game();
     // variables_learn::variables_learn();
@@ -41,7 +43,10 @@ fn main() {
     // hosting::add_to_waitlist();
 
     vec_learn::vec_learn();
+
+    string_learn::newstring();
     
+    hashmap_learn::hashmap_learn();
 }
 
 //函数的声明 返回类型 ->type
