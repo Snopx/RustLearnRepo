@@ -1,3 +1,5 @@
+use learn_trait::learn_trait::Summary;
+
 //Ordering by mod refer sequence like below
 // mod guessing_game; //pre
 // mod variables_learn; //1
@@ -10,11 +12,14 @@
 //mod enum_learn;//6
 
 // mod match_learn;//6.1
+mod generic_learn;
+mod hashmap_learn;
 mod package_crate_module;
+mod string_learn;
 mod use_learn;
 mod vec_learn;
-mod string_learn;
-mod hashmap_learn;
+
+mod learn_trait;
 fn main() {
     // guessing_game::guessing_game();
     // variables_learn::variables_learn();
@@ -42,15 +47,43 @@ fn main() {
     // use crate::use_learn::front_of_house_a::hosting;
     // hosting::add_to_waitlist();
 
-    vec_learn::vec_learn();
+    // vec_learn::vec_learn();
 
-    string_learn::newstring();
-    
-    hashmap_learn::hashmap_learn();
-}
+    // string_learn::newstring();
 
-//函数的声明 返回类型 ->type
-fn int_method() -> i32 {
-    3 // 两种返回形式，直接写返回值 或者 return value;
-      //return 3;
+    // hashmap_learn::hashmap_learn();
+    // use crate::generic_learn::generic_learn;
+    // let number_list = vec![30, 20, 3, 342, 24];
+
+    // let v = generic_learn::sort_generic(&number_list);
+    // println!("the largest num is {}", v);
+
+    // let first = number_list[0];
+    // println!("first num is {}", first);
+    // println!("and the number list is {:#?}", number_list);
+
+    // let char_list = vec!['y', 'm', 'z', 'q'];
+    // let v = generic_learn::sort_generic(&char_list);
+    // println!("the largest char is {}", v);
+    // println!("and the char list is {:#?}", char_list);
+
+    // let integer = generic_learn::Point::new_point(3, 5);
+
+    // println!("x:{},y:{}", integer.get_x(), integer.get_y());
+    // println!("{:#?}", integer);
+
+    // let charater = generic_learn::Point::new_point("x", "y");
+
+    // println!("x:{},y:{}", charater.get_x(), charater.get_y());
+    // println!("{:#?}", charater);
+
+    use crate::learn_trait::*;
+    let tweet = learn_trait::Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, people"),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summarize());
 }
