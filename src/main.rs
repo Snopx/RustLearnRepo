@@ -1,7 +1,6 @@
 use learn_trait::learn_trait::Summary;
 
 //Ordering by mod refer sequence like below
-// mod guessing_game; //pre
 // mod variables_learn; //1
 // mod learn_type; //2
 // mod control_flow;//3
@@ -12,16 +11,21 @@ use learn_trait::learn_trait::Summary;
 //mod enum_learn;//6
 
 // mod match_learn;//6.1
+<<<<<<< HEAD
 mod generic_learn;
+=======
+>>>>>>> 29828d8f0ed00d5bfa3ea664c2176b1a13a13d35
 mod hashmap_learn;
 mod package_crate_module;
 mod string_learn;
 mod use_learn;
 mod vec_learn;
+<<<<<<< HEAD
 
 mod learn_trait;
+=======
+>>>>>>> 29828d8f0ed00d5bfa3ea664c2176b1a13a13d35
 fn main() {
-    // guessing_game::guessing_game();
     // variables_learn::variables_learn();
     // learn_type::learn_type();
 
@@ -76,6 +80,7 @@ fn main() {
 
     // println!("x:{},y:{}", charater.get_x(), charater.get_y());
     // println!("{:#?}", charater);
+    guessing();
 
     use crate::learn_trait::*;
     let tweet = learn_trait::Tweet {
@@ -85,5 +90,48 @@ fn main() {
         retweet: false,
     };
 
+
+
     println!("1 new tweet: {}", tweet.summarize());
+}
+
+use rand::Rng;
+use std::cmp::Ordering;
+use std::io;
+mod guessing_game; //pre
+use crate::guessing_game::guessing_game::Guess;
+pub fn guessing() {
+    println!("Guess the number!");
+    let secret_number = rand::thread_rng().gen_range(1..100);
+    let mut time = 0;
+    loop {
+
+        println!("Please input your guess.");
+
+        let mut guess = String::new();
+
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
+        time += 1;
+        let guess: Guess = match guess.trim().parse() {
+            Ok(num) => Guess::new(num),
+            Err(_) => {
+                println!("please type a num!");
+                continue;
+            }
+        };
+
+        println!("You guessed: {}", guess.value());
+
+        match guess.value().cmp(&secret_number) {
+            Ordering::Less => println!("Too small"),
+            Ordering::Greater => println!("Too big"),
+            Ordering::Equal => {
+                println!("you win 🎇🎇🎇🎇🎇");
+                break;
+            }
+        }
+    }
+    println!("you guess {} times", time);
 }
