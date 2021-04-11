@@ -23,6 +23,8 @@ use learn_trait::learn_trait::{notify, Summary};
 mod algorithms;
 
 mod life_time_learn;
+
+mod test_learn;
 fn main() {
     // variables_learn::variables_learn();
     // learn_type::learn_type();
