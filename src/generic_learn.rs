@@ -11,13 +11,13 @@ pub mod generic_learn {
         largest
     }
 
-    pub fn sort_generic<T>(list: &[T]) -> T
+    pub fn sort_generic<T>(list: &[T]) -> &T
     where
-        T: PartialOrd + Copy, // 要返回对应类型 而不是&T 需要copy trait
+        T: PartialOrd, //+ Copy, // 要返回对应类型 而不是&T 需要copy trait
     {
-        let mut largest = list[0];
-        for &value in list {
-            if value > largest {
+        let mut largest = &list[0];
+        for value in list {
+            if value > &largest {
                 largest = value;
             }
         }
@@ -30,7 +30,8 @@ pub mod generic_learn {
         y: T,
     }
 
-    impl<T> Point<T> {//rust 编译时 会更具具体类型 单态化，即 会转换为对应类型，所以泛型的速度不会减慢
+    impl<T> Point<T> {
+        //rust 编译时 会更具具体类型 单态化，即 会转换为对应类型，所以泛型的速度不会减慢
         pub fn new_point(x: T, y: T) -> Point<T> {
             Point { x, y }
         }

@@ -18,9 +18,11 @@ mod use_learn;
 mod vec_learn;
 
 mod learn_trait;
-use learn_trait::learn_trait::Summary;
+use learn_trait::learn_trait::{notify, Summary};
 
 mod algorithms;
+
+mod life_time_learn;
 fn main() {
     // variables_learn::variables_learn();
     // learn_type::learn_type();
@@ -52,6 +54,7 @@ fn main() {
     // string_learn::newstring();
 
     // hashmap_learn::hashmap_learn();
+
     // use crate::generic_learn::generic_learn;
     // let number_list = vec![30, 20, 3, 342, 24];
 
@@ -67,6 +70,11 @@ fn main() {
     // println!("the largest char is {}", v);
     // println!("and the char list is {:#?}", char_list);
 
+    // let string_list = vec!["word".to_string(), "we".to_string()];
+    // let v = generic_learn::sort_generic(&string_list);
+    // println!("the largest string is {}", v);
+    // println!("and the string list is {:#?}", string_list);
+
     // let integer = generic_learn::Point::new_point(3, 5);
 
     // println!("x:{},y:{}", integer.get_x(), integer.get_y());
@@ -78,18 +86,24 @@ fn main() {
     // println!("{:#?}", charater);
     // guessing_game::guessing_game::guessing();
 
-    use crate::learn_trait::*;
-    let tweet = learn_trait::Tweet {
-        username: String::from("horse_ebooks"),
-        content: String::from("of course, as you probably already know, people"),
-        reply: false,
-        retweet: false,
-    };
+    // use crate::learn_trait::*;
+    // let tweet = learn_trait::Tweet {
+    //     username: String::from("horse_ebooks"),
+    //     content: String::from("of course, as you probably already know, people"),
+    //     reply: false,
+    //     retweet: false,
+    // };
 
-    println!("1 new tweet: {}", tweet.summarize());
+    // println!("1 new tweet: {}", tweet.summarize());
 
-    let mut number_list = vec![30, 20, 3, 342, 24];
-    println!("before sort :{:#?}", number_list);
-    algorithms::bubble_sort(&mut number_list);
-    println!("after sorted :{:#?}", number_list);
+    // notify(&tweet);
+
+    // println!("tweet's username: {}", tweet.username);
+
+    // let mut number_list = vec![30, 20, 3, 342, 24];
+    // println!("before sort :{:#?}", number_list);
+    // algorithms::bubble_sort(&mut number_list);
+    // println!("after sorted :{:#?}", number_list);
+
+    life_time_learn::life_time_learn();
 }

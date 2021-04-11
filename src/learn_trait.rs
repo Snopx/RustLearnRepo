@@ -32,4 +32,18 @@ pub mod learn_trait {
             format!("{}: {}", self.username, self.content)
         }
     }
+
+    pub fn notify<T: Summary>(item: &T) {
+        println!("notify:{}", item.summarize());
+    }
+
+    pub fn get_impl_summary() -> impl Summary {
+        Tweet {
+            username: String::from("horse_ebooks"),
+            content: String::from("of course, as you probably already know, people"),
+            reply: false,
+            retweet: false,
+        }
+    }
+    // note: 使用 impl trait 作为返回值时候 只能返回确定的一种类型，返回不同类型会报错 👆
 }
