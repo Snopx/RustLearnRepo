@@ -25,6 +25,8 @@ mod algorithms;
 mod life_time_learn;
 
 mod test_learn;
+
+mod io_learn;
 fn main() {
     // variables_learn::variables_learn();
     // learn_type::learn_type();
@@ -107,5 +109,21 @@ fn main() {
     // algorithms::bubble_sort(&mut number_list);
     // println!("after sorted :{:#?}", number_list);
 
-    life_time_learn::life_time_learn();
+    // life_time_learn::life_time_learn();
+    /*  IO-LEARN
+
+    use std::env;
+    use std::process;
+    let args: Vec<String> = env::args().collect(); // 获取环境参数
+    let config = io_learn::Config::new(&args).unwrap_or_else(|err| {
+        eprintln!("Problem parsing arguments: {}", err);
+        process::exit(1); //process didn't exit successfully: `target\debug\learn_rust.exe` (exit code: 1)
+    });
+    if let Err(e) = io_learn::run(config) {
+        eprintln!("Application error: {}", e);
+
+        process::exit(1);
+    }
+    // 使用 cargo run to poem.txt > output.txt  将结果写入到 output.txt中
+    */
 }

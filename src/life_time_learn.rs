@@ -4,7 +4,7 @@ pub fn life_time_learn() {
     let s2 = "xyz";
 
     let result = longest(s1.as_str(), s2);
-    println!("longest one is{}", result);
+    println!("longest one is {}", result);
 }
 
 // rust 中的 借用检查器
