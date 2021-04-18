@@ -36,6 +36,14 @@ mod test {
     fn expensive_test() {
         // code that takes an hour to run
     }
+    #[test]
+    fn it_work() -> Result<(), String> {// 返回了 err 就不需要标注 #[should_panic]
+        if 2 + 2 == 5 {
+            Ok(())
+        } else {
+            Err("".to_string())
+        }
+    }
 
     // cargo test 会将所有标记为 #[test] 的方法测试
     // cargo test test_learn  表示只对 test_learn() 进行测试
@@ -48,8 +56,7 @@ mod test {
     // like  #[should_panic(expected = "Guess value must be less than or equal to 100")]
 
     // #[cfg(test)] 使用该标注的 module 进行cargo test时候只会编译该部分
-    // The #[cfg(test)] annotation on the tests module tells Rust to compile and run the test code only when you run cargo test, not when you run cargo build. 
-
+    // The #[cfg(test)] annotation on the tests module tells Rust to compile and run the test code only when you run cargo test, not when you run cargo build.
 
     // cargo test --test integration_test
     // This command runs only the tests in the tests/integration_test.rs file. tests文件夹下的 integration_test.rs 文件
