@@ -27,6 +27,8 @@ mod life_time_learn;
 mod test_learn;
 
 mod io_learn;
+
+mod closure_learn;
 fn main() {
     // variables_learn::variables_learn();
     // learn_type::learn_type();
