@@ -64,16 +64,16 @@ fn test_type_inference_annotaion() {
 
 // 每个闭包的实例都有自己唯一的匿名类型，即使两个闭包签名完全一样
 // 所有的闭包都实现了 以下 trait 之一
-// Fn
-// FnMut
-// FnOnce
+// Fn       不可变借用
+// FnMut    可变借用
+// FnOnce   取得所有权
 struct Cacher<T, K, V>
 where
     T: Fn(K) -> V,
     K: Eq + Hash + Copy,
 {
     calculation: T,
-    map: HashMap<K, V>,
+    value: HashMap<K, V>,
 }
 
 impl<T, K, V> Cacher<T, K, V>
@@ -84,12 +84,12 @@ where
     pub fn new(calculation: T) -> Cacher<T, K, V> {
         Cacher {
             calculation,
-            map: HashMap::new(),
+            value: HashMap::new(),
         }
     }
- 
+
     pub fn value(&mut self, arg: K) -> &V {
-        self.map.entry(arg).or_insert((self.calculation)(arg))
+        self.value.entry(arg).or_insert((self.calculation)(arg))
     }
 }
 
@@ -98,7 +98,10 @@ fn generic_closure() {
     let mut expensive_closure1 = Cacher::new(|t1: &str| -> usize { t1.len() });
     let intensity = 20;
     if intensity < 25 {
-        println!("Today, do {} pushups!", expensive_closure1.value("intensity"));
+        println!(
+            "Today, do {} pushups!",
+            expensive_closure1.value("intensity")
+        );
         println!("Next, do {} situps!", expensive_closure1.value("123")); //
     } else {
         if 100 == 3 {
@@ -110,4 +113,17 @@ fn generic_closure() {
             );
         }
     }
+}
+#[test]
+fn capture_env_closure() {
+    // 所有的闭包都实现了 FnOnce
+    // 没有移动捕获变量的实现了 FnMut  👆
+    // 无需可变访问捕获变量的闭包实现了 Fn  👆
+    // 所有实现了 Fn 的 都实现了 FnMut； 所有实现了 FnMut 的 都实现了 FnOnce
+
+    // move 强制闭包取得它所使用的环境值的所有权 -- 当将闭包传递给新线程以移动数据使其归新线程所有时，此技术最为有用
+    let a = "123";
+    let fn_move = move |x| x == a;
+     println!("{}", a);  //value moved into closure here 如果该对象实现了 copy trait 那就不会报错  或者 调用了 clone() 方法 即clone trait???
+    assert!(fn_move("1223"));
 }
