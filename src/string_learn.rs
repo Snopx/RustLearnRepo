@@ -5,7 +5,7 @@ pub fn newstring() {
 
     s.push('y');
     s.push_str(" string");
-    let s3 = s + " 123"; // 此时 s 的所有权 move 到的 s;
+    let s3 = s + " 123"; // 此时 s 的所有权 move 到的 s3;
     println!("{}", s3);
 
     // + 连接字符串 实际上使用类似

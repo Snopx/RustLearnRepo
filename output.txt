@@ -1,2 +1,4 @@
 Are you nobody, too?
 How dreary to be somebody!
+5
+Cons(1, Cons(2, Cons(3, Nil)))

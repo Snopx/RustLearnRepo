@@ -31,6 +31,11 @@ mod io_learn;
 mod closure_learn;
 
 mod iter_learn;
+
+mod smart_pointer_learn;
+
+mod smart_pointer;
+
 fn main() {
     // variables_learn::variables_learn();
     // learn_type::learn_type();
@@ -124,4 +129,34 @@ fn main() {
     }
     // 使用 cargo run to poem.txt > output.txt  将结果写入到 output.txt中
     // */
+    // smart_pointer_learn::box_learn();
+
+    let x = 5;
+    let y = &x;
+
+    assert_eq!(5, x);
+    assert_eq!(5, *y);
+
+    let x = 5;
+    let y = MyBox::new(x);
+
+    assert_eq!(5, x);
+    assert_eq!(5, *y);
+    smart_pointer::smart_pointer::box_lean();
+}
+
+struct MyBox<T>(T);
+
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
+        MyBox(x)
+    }
+}
+use std::ops::Deref;
+impl<T> Deref for MyBox<T> {
+    type Target = T;
+
+    fn deref(&self) -> &T {
+        &self.0
+    }
 }
