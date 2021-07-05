@@ -116,17 +116,17 @@ fn main() {
     // life_time_learn::life_time_learn();
     // /*  IO-LEARN
 
-    use std::env;
-    use std::process;
-    let config = io_learn::Config::new(env::args()).unwrap_or_else(|err| {
-        eprintln!("Problem parsing arguments: {}", err);
-        process::exit(1); //process didn't exit successfully: `target\debug\learn_rust.exe` (exit code: 1)
-    });
-    if let Err(e) = io_learn::run(config) {
-        eprintln!("Application error: {}", e);
+    // use std::env;
+    // use std::process;
+    // let config = io_learn::Config::new(env::args()).unwrap_or_else(|err| {
+    //     eprintln!("Problem parsing arguments: {}", err);
+    //     process::exit(1); //process didn't exit successfully: `target\debug\learn_rust.exe` (exit code: 1)
+    // });
+    // if let Err(e) = io_learn::run(config) {
+    //     eprintln!("Application error: {}", e);
 
-        process::exit(1);
-    }
+    //     process::exit(1);
+    // }
     // 使用 cargo run to poem.txt > output.txt  将结果写入到 output.txt中
     // */
     // smart_pointer_learn::box_learn();
